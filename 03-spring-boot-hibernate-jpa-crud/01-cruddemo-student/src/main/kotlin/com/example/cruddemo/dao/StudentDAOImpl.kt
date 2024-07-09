@@ -13,4 +13,19 @@ class StudentDAOImpl(@Autowired private val entityManager: EntityManager) : Stud
     override fun save(student: Student) {
         entityManager.persist(student)
     }
+
+    override fun findById(id: Int): Student? {
+        return entityManager.find(Student::class.java, id)
+    }
+
+    override fun findAll(): List<Student> {
+        val query = entityManager.createQuery("FROM Student", Student::class.java)
+        return query.resultList
+    }
+
+    override fun findByLastName(lastName: String): List<Student> {
+        val query = entityManager.createQuery("FROM Student WHERE lastName=:theData", Student::class.java)
+        query.setParameter("theData", lastName)
+        return query.resultList
+    }
 }

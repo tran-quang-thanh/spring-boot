@@ -13,7 +13,19 @@ class CruddemoApplication {
 	fun commandLineRunner(studentDAO: StudentDAO): CommandLineRunner {
 		return CommandLineRunner {
 //			createStudent(studentDAO)
-			createMultipleStudents(studentDAO)
+//			createMultipleStudents(studentDAO)
+
+//			readStudent(studentDAO)
+
+//			queryStudents(studentDAO)
+			queryStudentsByLastName(studentDAO)
+		}
+	}
+
+	private fun queryStudentsByLastName(studentDAO: StudentDAO) {
+		val theStudents = studentDAO.findByLastName("Doe")
+		theStudents.forEach {
+			println(it)
 		}
 	}
 
@@ -54,6 +66,30 @@ class CruddemoApplication {
 		studentDAO.save(tempStudent)
 
 		println("Saved student, generated id: ${tempStudent.id}")
+	}
+
+	private fun readStudent(studentDAO: StudentDAO) {
+		println("Creating new student object ...")
+		val tempStudent = Student(
+			firstName = "Daffy",
+			lastName = "Duck",
+			email = "daffy@example.com"
+		)
+
+		println("Saving new student object ...")
+		studentDAO.save(tempStudent)
+
+
+		val id = tempStudent.id
+		println("Saved student. Generated id: $id")
+
+		println("Retrieving student with id: $id")
+		val myStudent = studentDAO.findById(id)
+		println("Found the student: $myStudent")
+	}
+
+	private fun queryStudents(studentDAO: StudentDAO) {
+		println(studentDAO.findAll())
 	}
 }
 
