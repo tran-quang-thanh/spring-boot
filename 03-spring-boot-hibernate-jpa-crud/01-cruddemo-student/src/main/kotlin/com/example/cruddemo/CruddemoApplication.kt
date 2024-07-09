@@ -21,7 +21,22 @@ class CruddemoApplication {
 //			queryStudentsByLastName(studentDAO)
 
 //			updateStudent(studentDAO)
+//			deleteStudent(studentDAO)
+
+			deleteAll(studentDAO)
 		}
+	}
+
+	private fun deleteAll(studentDAO: StudentDAO) {
+		println("Deleting all students")
+		val numRowsDeleted = studentDAO.deleteAll()
+		println("Deleted row count: $numRowsDeleted")
+	}
+
+	private fun deleteStudent(studentDAO: StudentDAO) {
+		val studentId = 3
+		println("Deleting student id: $studentId")
+		studentDAO.delete(studentId)
 	}
 
 	private fun updateStudent(studentDAO: StudentDAO) {

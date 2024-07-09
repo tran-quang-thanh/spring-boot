@@ -33,4 +33,18 @@ class StudentDAOImpl(@Autowired private val entityManager: EntityManager) : Stud
     override fun update(student: Student) {
         entityManager.merge(student)
     }
+
+    @Transactional
+    override fun delete(id: Int) {
+        entityManager.find(Student::class.java, id)?.let {
+            entityManager.remove(it)
+        }
+    }
+
+    @Transactional
+    override fun deleteAll(): Int {
+        val numRowsDeleted = entityManager.createQuery("DELETE FROM Student").executeUpdate()
+
+        return numRowsDeleted
+    }
 }
