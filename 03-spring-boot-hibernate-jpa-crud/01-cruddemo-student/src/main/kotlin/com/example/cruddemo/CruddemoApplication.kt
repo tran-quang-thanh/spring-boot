@@ -13,7 +13,7 @@ class CruddemoApplication {
 	fun commandLineRunner(studentDAO: StudentDAO): CommandLineRunner {
 		return CommandLineRunner {
 //			createStudent(studentDAO)
-//			createMultipleStudents(studentDAO)
+			createMultipleStudents(studentDAO)
 
 //			readStudent(studentDAO)
 
@@ -21,9 +21,9 @@ class CruddemoApplication {
 //			queryStudentsByLastName(studentDAO)
 
 //			updateStudent(studentDAO)
-//			deleteStudent(studentDAO)
 
-			deleteAll(studentDAO)
+//			deleteStudent(studentDAO)
+//			deleteAll(studentDAO)
 		}
 	}
 
