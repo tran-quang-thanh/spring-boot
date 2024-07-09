@@ -18,8 +18,26 @@ class CruddemoApplication {
 //			readStudent(studentDAO)
 
 //			queryStudents(studentDAO)
-			queryStudentsByLastName(studentDAO)
+//			queryStudentsByLastName(studentDAO)
+
+//			updateStudent(studentDAO)
 		}
+	}
+
+	private fun updateStudent(studentDAO: StudentDAO) {
+		val studentId = 1
+		println("Get student with id: $studentId")
+
+		val student = studentDAO.findById(studentId)
+
+		if (student != null) {
+			println("Updating student ...")
+			student.firstName = "John"
+			studentDAO.update(student)
+
+			println("Updated student: $student")
+		}
+
 	}
 
 	private fun queryStudentsByLastName(studentDAO: StudentDAO) {

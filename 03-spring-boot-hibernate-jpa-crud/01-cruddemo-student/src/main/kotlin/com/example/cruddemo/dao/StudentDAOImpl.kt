@@ -28,4 +28,9 @@ class StudentDAOImpl(@Autowired private val entityManager: EntityManager) : Stud
         query.setParameter("theData", lastName)
         return query.resultList
     }
+
+    @Transactional
+    override fun update(student: Student) {
+        entityManager.merge(student)
+    }
 }
