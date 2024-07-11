@@ -30,6 +30,9 @@ class Employee {
     }
 
     fun getId() = id
+    fun setId(newId: Long) {
+        this.id = newId
+    }
     fun getFirstName() = firstName
     fun getLastName() = lastName
     fun getEmail() = email
