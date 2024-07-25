@@ -15,14 +15,19 @@ public class MyDemoLoggingAspect {
 //    public void beforeAddAccountAdvice() {
 //        System.out.println("\n====>>> Executing @Before advice on addAccount()");
 //    }
-//
+
 //    @Before("execution(public void com.example.aopdemo.dao.AccountDAO.addAccount())")
 //    public void beforeAccountAddAccountAdvice() {
 //        System.out.println("\n====>>> Executing @Before advice on Account addAccount()");
 //    }
 
-    @Before("execution(public void add*())")
-    public void beforeAddAdvice() {
-        System.out.println("\n====>>> Executing @Before advice on Membership addSillyMember()");
-    }
+//    @Before("execution(public void add*())")
+//    public void beforeAddAdvice() {
+//        System.out.println("\n====>>> Executing @Before advice on Membership addSillyMember()");
+//    }
+
+//    @Before("execution(public * add*())")
+//    public void beforeAddAnyTypeAdvice() {
+//        System.out.println("\n====>>> Executing @Before advice on Any type add*()");
+//    }
 }
