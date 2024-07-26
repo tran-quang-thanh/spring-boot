@@ -22,7 +22,14 @@ public class MyDemoLoggingAspect {
         System.out.println("\n=====>>> Executing @Around on method: " + method);
 
         long begin = System.currentTimeMillis();
-        Object result = proceedingJoinPoint.proceed();
+        Object result;
+        try {
+            result = proceedingJoinPoint.proceed();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+
+            throw e;
+        }
 
         long end = System.currentTimeMillis();
         long duration = end - begin;

@@ -8,6 +8,15 @@ import java.util.concurrent.TimeUnit;
 public class TrafficFortuneServiceImpl implements TrafficFortuneService {
     @Override
     public String getFortune() {
+        return getFortune(false);
+    }
+
+    @Override
+    public String getFortune(boolean tripWire) {
+        if (tripWire) {
+            throw new RuntimeException("Major accident! Highway is closed!");
+        }
+
         // simulate a delay
         try {
             TimeUnit.SECONDS.sleep(5);
